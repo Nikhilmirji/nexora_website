@@ -17,17 +17,17 @@ const foundingMembers = [
 
 const facultyAdvisors = [
   { name: 'Dr.Vijaya Shetty S', role: 'Professor and Head, Dept. of CSE, NMIT', img: '/found2.jpeg' },
-  { name: 'Dr.Sudheer Reddy j', role: 'Professor and Director - Curriculum Development and Academics, NDU', img: '/found3.jpeg' },
+  { name: 'Dr.Sudheer Reddy J', role: 'Professor and Director - Curriculum Development and Academics, NDU', img: '/found3.jpeg' },
 ];
 
 const memberRows = [
   [
     { name: 'Rudraksh Gajendra Shende', role: 'Club Lead', img: '/lead.jpeg' },
-    { name: 'Co-Lead', role: 'Co-Lead', img: '/co_lead.jpeg' },
+    { name: 'Patil Aryan', role: 'Co-Lead', img: '/co_lead.jpeg' },
   ],
   [
     { name: 'Niranjan Chennakrishnasrinivasan', role: 'General Secretary', img: '/general_secratary.jpeg' },
-    { name: 'Sponsorship Lead', role: 'Sponsorship Lead', img: '/sponsor_lead.jpeg' },
+    { name: 'Rudransh Karan', role: 'Sponsorship Lead', img: '/sponsor_lead.jpeg' },
   ],
   [
     { name: 'Prathamesh D M', role: 'Social Media Lead', img: '/social_media_lead.jpeg' },
