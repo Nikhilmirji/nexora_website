@@ -98,7 +98,7 @@ const Recruitment = () => {
           className="flex flex-col items-center text-center"
         >
           <a
-            href="https://forms.google.com"
+            href="https://forms.gle/FpbvEwM9DjpdEFkm6"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-10 py-4 bg-accent hover:bg-accent-bright text-white font-[var(--font-heading)] font-semibold text-lg rounded-xl btn-glow transition-all duration-300 hover:scale-105"
