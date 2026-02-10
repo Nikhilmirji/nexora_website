@@ -97,14 +97,24 @@ const Recruitment = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex flex-col items-center text-center"
         >
-          <a
-            href="https://forms.gle/FpbvEwM9DjpdEFkm6"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-10 py-4 bg-accent hover:bg-accent-bright text-white font-[var(--font-heading)] font-semibold text-lg rounded-xl btn-glow transition-all duration-300 hover:scale-105"
-          >
-            Register Now
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <a
+              href="https://forms.gle/FpbvEwM9DjpdEFkm6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-4 bg-accent hover:bg-accent-bright text-white font-[var(--font-heading)] font-semibold text-lg rounded-xl btn-glow transition-all duration-300 hover:scale-105"
+            >
+              Register Now
+            </a>
+            <a
+              href="https://chat.whatsapp.com/JyObpf4rckXC5YuEcRvK9h"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-4 bg-green-600 hover:bg-green-500 text-white font-[var(--font-heading)] font-semibold text-lg rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-green-600/20"
+            >
+              Join WhatsApp Group
+            </a>
+          </div>
           <p className="text-text-dim text-sm mt-4">
             Google Form link will be updated once recruitment opens.
           </p>
