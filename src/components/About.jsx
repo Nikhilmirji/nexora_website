@@ -44,17 +44,17 @@ const MemberCard = ({ member, index, isInView }) => (
     initial={{ opacity: 0, y: 40 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.5, delay: 0.4 + index * 0.08 }}
-    className="glass rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 w-full"
+    className="glass rounded-2xl p-4 sm:p-6 md:p-8 flex flex-col items-center text-center group hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 w-full"
   >
-    <div className="w-28 h-28 sm:w-32 sm:h-32 mb-5 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-primary/50 transition-all duration-300 shadow-lg shadow-black/30">
+    <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-4 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-primary/50 transition-all duration-300 shadow-lg shadow-black/30 bg-white/5">
       <img
         src={member.img}
         alt={member.name}
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-300"
       />
     </div>
-    <h4 className="font-semibold text-white text-sm sm:text-base mb-1.5">{member.name}</h4>
-    <p className="text-xs sm:text-sm text-primary font-medium tracking-wide">{member.role}</p>
+    <h4 className="font-semibold text-white text-xs sm:text-sm md:text-base mb-1.5 break-words max-w-full px-1">{member.name}</h4>
+    <p className="text-xs sm:text-sm text-primary font-medium tracking-wide break-words max-w-full px-1">{member.role}</p>
   </motion.div>
 );
 
@@ -87,9 +87,9 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="w-full max-w-3xl mx-auto mb-24"
+          className="w-full max-w-3xl mx-auto mb-16 sm:mb-24"
         >
-          <div className="glass rounded-2xl p-10 sm:p-12">
+          <div className="glass rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12">
             <p className="text-text-secondary text-base sm:text-lg leading-relaxed text-center">
               <span className="text-primary font-semibold">Nexora</span> is the Vibe Coding Club of NMIT —
               a community where coding meets creativity. We believe in building cool things, learning by doing,
@@ -112,39 +112,21 @@ const About = () => {
           <div className="w-12 h-0.5 bg-primary/40 rounded-full" />
         </motion.div>
 
-        <div className="w-full max-w-5xl mx-auto mb-28">
-          {/* Row 1: 4 images */}
-          <div className="flex justify-center gap-5 mb-5">
-            {events.slice(0, 4).map((src, i) => (
+        <div className="w-full max-w-5xl mx-auto mb-16 sm:mb-28">
+          {/* Grid layout for all events */}
+          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+            {events.map((src, i) => (
               <motion.div
                 key={src}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="glass rounded-2xl overflow-hidden group hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 flex-1 max-w-[240px]"
+                className="glass rounded-2xl overflow-hidden group hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 w-full aspect-square"
               >
                 <img
                   src={src}
                   alt={`Event ${i + 1}`}
-                  className="w-full h-auto object-contain rounded-2xl"
-                />
-              </motion.div>
-            ))}
-          </div>
-          {/* Row 2: 3 images, centered */}
-          <div className="flex justify-center gap-5">
-            {events.slice(4, 7).map((src, i) => (
-              <motion.div
-                key={src}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
-                className="glass rounded-2xl overflow-hidden group hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 flex-1 max-w-[240px]"
-              >
-                <img
-                  src={src}
-                  alt={`Event ${i + 5}`}
-                  className="w-full h-auto object-contain rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
               </motion.div>
             ))}
@@ -164,24 +146,24 @@ const About = () => {
           <div className="w-12 h-0.5 bg-primary/40 rounded-full" />
         </motion.div>
 
-        <div className="w-full max-w-3xl mx-auto flex justify-center mb-28">
+        <div className="w-full max-w-3xl mx-auto flex justify-center mb-16 sm:mb-28 px-4">
           {foundingMembers.map((member, i) => (
             <motion.div
               key={member.img}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.35 + i * 0.1 }}
-              className="glass rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 w-full max-w-[250px]"
+              className="glass rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 w-full max-w-[280px]"
             >
-              <div className="w-36 h-36 sm:w-44 sm:h-44 mb-5 rounded-2xl overflow-hidden border-2 border-yellow/40 group-hover:border-yellow/70 transition-all duration-300 shadow-lg shadow-black/30">
+              <div className="w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 mb-4 sm:mb-5 rounded-2xl overflow-hidden border-2 border-yellow/40 group-hover:border-yellow/70 transition-all duration-300 shadow-lg shadow-black/30 bg-white/5">
                 <img
                   src={member.img}
                   alt={member.name}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h4 className="font-semibold text-white text-sm sm:text-base mb-1.5">{member.name}</h4>
-              <p className="text-xs sm:text-sm text-yellow font-medium tracking-wide">{member.role}</p>
+              <h4 className="font-semibold text-white text-sm sm:text-base mb-1.5 break-words max-w-full">{member.name}</h4>
+              <p className="text-xs sm:text-sm text-yellow font-medium tracking-wide break-words max-w-full">{member.role}</p>
             </motion.div>
           ))}
         </div>
@@ -199,24 +181,24 @@ const About = () => {
           <div className="w-12 h-0.5 bg-primary/40 rounded-full" />
         </motion.div>
 
-        <div className="w-full max-w-3xl mx-auto flex justify-center gap-8 mb-28">
+        <div className="w-full max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-16 sm:mb-28 px-4">
           {facultyAdvisors.map((member, i) => (
             <motion.div
               key={member.img}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.38 + i * 0.1 }}
-              className="glass rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 w-full max-w-[250px]"
+              className="glass rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center group hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 w-full"
             >
-              <div className="w-36 h-36 sm:w-44 sm:h-44 mb-5 rounded-2xl overflow-hidden border-2 border-yellow/40 group-hover:border-yellow/70 transition-all duration-300 shadow-lg shadow-black/30">
+              <div className="w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 mb-4 sm:mb-5 rounded-2xl overflow-hidden border-2 border-yellow/40 group-hover:border-yellow/70 transition-all duration-300 shadow-lg shadow-black/30 bg-white/5">
                 <img
                   src={member.img}
                   alt={member.name}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h4 className="font-semibold text-white text-sm sm:text-base mb-1.5">{member.name}</h4>
-              <p className="text-xs sm:text-sm text-yellow font-medium tracking-wide">{member.role}</p>
+              <h4 className="font-semibold text-white text-sm sm:text-base mb-1.5 break-words max-w-full">{member.name}</h4>
+              <p className="text-xs sm:text-sm text-yellow font-medium tracking-wide break-words max-w-full leading-relaxed">{member.role}</p>
             </motion.div>
           ))}
         </div>
@@ -235,9 +217,9 @@ const About = () => {
         </motion.div>
 
         {/* Member rows - 2 per row, centered */}
-        <div className="w-full max-w-2xl mx-auto flex flex-col gap-8">
+        <div className="w-full max-w-2xl mx-auto flex flex-col gap-4 sm:gap-6 md:gap-8">
           {memberRows.map((row, rowIdx) => (
-            <div key={rowIdx} className="grid grid-cols-2 gap-8">
+            <div key={rowIdx} className="grid grid-cols-1 xs:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
               {row.map((member) => {
                 const idx = cardIndex++;
                 return (
