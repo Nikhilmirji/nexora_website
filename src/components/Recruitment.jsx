@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+import SpotlightCard from './SpotlightCard';
+
 const cards = [
   {
     title: 'Why Vibe Coding Club',
@@ -72,19 +74,24 @@ const Recruitment = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="glass rounded-2xl p-8 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all duration-300"
+                className="h-full"
               >
-                <h3 className="font-[var(--font-heading)] text-lg font-semibold text-accent-bright mb-5">
-                  {card.title}
-                </h3>
-                <ul className="space-y-3">
-                  {card.points.map((point, j) => (
-                    <li key={j} className="flex items-start gap-3 text-text-secondary text-sm">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+                <SpotlightCard 
+                  className="glass rounded-2xl p-8 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all duration-300 h-full"
+                  spotlightColor="rgba(0, 240, 255, 0.25)"
+                >
+                  <h3 className="font-[var(--font-heading)] text-lg font-semibold text-accent-bright mb-5 relative z-10">
+                    {card.title}
+                  </h3>
+                  <ul className="space-y-3 relative z-10">
+                    {card.points.map((point, j) => (
+                      <li key={j} className="flex items-start gap-3 text-text-secondary text-sm">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </SpotlightCard>
               </motion.div>
             ))}
           </div>
@@ -102,7 +109,7 @@ const Recruitment = () => {
               href="https://forms.gle/FpbvEwM9DjpdEFkm6"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-accent hover:bg-accent-bright text-white font-[var(--font-heading)] font-semibold text-lg rounded-xl btn-glow transition-all duration-300 hover:scale-105"
+              className="inline-block px-10 py-4 bg-primary text-black font-[var(--font-heading)] font-bold text-lg rounded-xl shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:shadow-[0_0_35px_rgba(0,240,255,0.6)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             >
               Register Now
             </a>
@@ -110,7 +117,7 @@ const Recruitment = () => {
               href="https://chat.whatsapp.com/JyObpf4rckXC5YuEcRvK9h"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-green-600 hover:bg-green-500 text-white font-[var(--font-heading)] font-semibold text-lg rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-green-600/20"
+              className="inline-block px-10 py-4 glass border border-green-500/30 text-green-400 font-[var(--font-heading)] font-semibold text-lg rounded-xl hover:bg-green-500/10 hover:border-green-400 hover:text-green-300 shadow-[0_0_15px_rgba(34,197,94,0.1)] hover:shadow-[0_0_25px_rgba(34,197,94,0.3)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             >
               Join WhatsApp Group
             </a>

@@ -2,9 +2,9 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const sponsors = [
-  { name: 'Sponsor One', logo: '/club_logo.jpeg' },
-  { name: 'Sponsor Two', logo: '/club_logo.jpeg' },
-  { name: 'Sponsor Three', logo: '/club_logo.jpeg' },
+  { name: 'Sponsor One', logo: '/assets/club_logo.jpeg' },
+  { name: 'Sponsor Two', logo: '/assets/club_logo.jpeg' },
+  { name: 'Sponsor Three', logo: '/assets/club_logo.jpeg' },
 ];
 
 const Sponsors = () => {
@@ -27,25 +27,17 @@ const Sponsors = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full" />
         </motion.div>
 
-        <div className="w-full max-w-xl mx-auto space-y-8">
-          {sponsors.map((sponsor, i) => (
-            <motion.div
-              key={sponsor.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="glass rounded-2xl p-8 flex flex-col items-center gap-5 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
-            >
-              <div className="w-24 h-24 rounded-xl overflow-hidden bg-white/5 flex items-center justify-center">
-                <img
-                  src={sponsor.logo}
-                  alt={sponsor.name}
-                  className="w-16 h-16 object-contain opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </div>
-              <h3 className="text-white font-semibold text-lg">{sponsor.name}</h3>
-            </motion.div>
-          ))}
+        <div className="w-full max-w-xl mx-auto flex justify-center items-center min-h-[200px]">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="glass rounded-xl px-8 py-6 sm:px-12 sm:py-8 flex items-center justify-center max-w-full"
+          >
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-white animate-pulse tracking-widest uppercase font-[var(--font-heading)] text-center">
+              Coming Soon!
+            </h3>
+          </motion.div>
         </div>
 
         <motion.p
