@@ -7,7 +7,6 @@ const navItems = [
   { id: 'sponsors', label: 'Sponsors' },
   { id: 'faqs', label: 'FAQs' },
   { id: 'contact', label: 'Contact Us' },
-  { id: 'recruitment', label: 'Recruitment', highlight: true },
 ];
 
 const Navbar = () => {
