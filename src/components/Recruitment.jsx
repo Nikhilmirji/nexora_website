@@ -97,35 +97,7 @@ const Recruitment = () => {
           </div>
         </div>
 
-        {/* Register Button */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-col items-center text-center"
-        >
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <a
-              href="https://forms.gle/FpbvEwM9DjpdEFkm6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-primary text-black font-[var(--font-heading)] font-bold text-lg rounded-xl shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:shadow-[0_0_35px_rgba(0,240,255,0.6)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-            >
-              Register Now
-            </a>
-            <a
-              href="https://chat.whatsapp.com/JyObpf4rckXC5YuEcRvK9h"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-10 py-4 glass border border-green-500/30 text-green-400 font-[var(--font-heading)] font-semibold text-lg rounded-xl hover:bg-green-500/10 hover:border-green-400 hover:text-green-300 shadow-[0_0_15px_rgba(34,197,94,0.1)] hover:shadow-[0_0_25px_rgba(34,197,94,0.3)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-            >
-              Join WhatsApp Group
-            </a>
-          </div>
-          <p className="text-text-dim text-sm mt-4">
-            Google Form link will be updated once recruitment opens.
-          </p>
-        </motion.div>
+
       </div>
     </section>
   );

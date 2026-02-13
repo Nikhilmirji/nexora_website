@@ -24,7 +24,7 @@ const coreMembers = [
   { name: 'Rudraksh Gajendra Shende', role: 'Club Lead', img: '/assets/lead.jpeg' },
   { name: 'Patil Aryan', role: 'Co-Lead', img: '/assets/co_lead.jpeg' },
   { name: 'Niranjan Chennakrishnasrinivasan', role: 'General Secretary', img: '/assets/general_secratary.jpeg' },
-  { name: 'Rudransh Karan', role: 'Sponsorship Lead', img: '/assets/sponsleader.png' },
+  { name: 'Rudransh Karan', role: 'Sponsorship Lead', img: '/assets/sponsleader.jpeg' },
   { name: 'Prathamesh D M', role: 'Social Media Lead', img: '/assets/social_media_lead.jpeg' },
   { name: 'Dhananjaya K', role: 'Design Lead', img: '/assets/design_lead.jpeg' },
   { name: 'Gurucharan M.', role: 'Tech Lead', img: '/assets/image.png' },
