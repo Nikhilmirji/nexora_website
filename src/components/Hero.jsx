@@ -10,8 +10,8 @@ const Hero = () => {
   });
 
   useEffect(() => {
-    // Set target time to 24 hours from now
-    const targetTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+    // Set target time to 23 hours 26 minutes from now
+    const targetTime = new Date().getTime() + (23 * 60 * 60 * 1000) + (26 * 60 * 1000);
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
