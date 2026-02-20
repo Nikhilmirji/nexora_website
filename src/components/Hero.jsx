@@ -96,7 +96,7 @@ const Hero = () => {
               }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
-              Results Announcement
+              Recruitment result out in 
             </motion.h2>
             <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full" />
           </div>
