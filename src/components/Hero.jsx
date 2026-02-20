@@ -10,10 +10,10 @@ const Hero = () => {
   });
 
   useEffect(() => {
-    // Set target time to 23 hours 26 minutes from now
-    const targetTime = new Date().getTime() + (23 * 60 * 60 * 1000) + (26 * 60 * 1000);
+    // Fixed target time - February 22, 2026 at 3:00 PM IST
+    const targetTime = new Date('2026-02-22T15:00:00').getTime();
 
-    const timer = setInterval(() => {
+    const updateCountdown = () => {
       const now = new Date().getTime();
       const difference = targetTime - now;
 
@@ -25,9 +25,13 @@ const Hero = () => {
         });
       } else {
         setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
-        clearInterval(timer);
       }
-    }, 1000); // Update every second
+    };
+
+    // Update immediately on mount
+    updateCountdown();
+
+    const timer = setInterval(updateCountdown, 1000); // Update every second
 
     return () => clearInterval(timer);
   }, []);
