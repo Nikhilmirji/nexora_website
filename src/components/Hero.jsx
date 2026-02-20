@@ -10,8 +10,8 @@ const Hero = () => {
   });
 
   useEffect(() => {
-    // Fixed target time - February 22, 2026 at 3:00 PM IST
-    const targetTime = new Date('2026-02-22T15:00:00').getTime();
+    // Fixed target time - February 21, 2026 at 8:00 PM IST
+    const targetTime = new Date('2026-02-21T20:00:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -68,7 +68,7 @@ const Hero = () => {
         >
           NE<span className="text-yellow">X</span>ORA
         </h1>
-        
+
         {/* Subtitle */}
         <motion.p
           className="mt-2 text-text-secondary tracking-wide text-center"
@@ -91,7 +91,7 @@ const Hero = () => {
           <div className="text-center space-y-3">
             <motion.h2
               className="text-2xl sm:text-3xl md:text-4xl font-[var(--font-heading)] font-bold text-white tracking-wide"
-              animate={{ 
+              animate={{
                 textShadow: [
                   '0 0 20px rgba(0,240,255,0.5)',
                   '0 0 40px rgba(0,240,255,0.8)',
@@ -100,22 +100,22 @@ const Hero = () => {
               }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
-              Recruitment result out in 
+              Recruitment result out in
             </motion.h2>
             <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full" />
           </div>
 
           {/* Countdown Display */}
-          <motion.div 
+          <motion.div
             className="relative glass border-2 border-primary/30 rounded-2xl p-6 sm:p-8 md:p-10 w-full shadow-[0_0_40px_rgba(0,240,255,0.3)] hover:shadow-[0_0_60px_rgba(0,240,255,0.5)] transition-all duration-300"
             whileHover={{ scale: 1.02 }}
           >
             {/* Animated background glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 rounded-2xl" />
-            
+
             <div className="relative z-10 grid grid-cols-3 gap-3 sm:gap-4 md:gap-6">
               {/* Hours */}
-              <motion.div 
+              <motion.div
                 className="flex flex-col items-center"
                 whileHover={{ y: -5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
@@ -123,7 +123,7 @@ const Hero = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-primary/20 blur-xl rounded-lg" />
                   <div className="relative bg-gradient-to-br from-black/60 to-black/40 rounded-xl p-3 sm:p-4 md:p-6 border border-primary/40 min-w-[60px] sm:min-w-[80px] md:min-w-[100px]">
-                    <motion.span 
+                    <motion.span
                       key={timeLeft.hours}
                       initial={{ y: -20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
@@ -137,7 +137,7 @@ const Hero = () => {
               </motion.div>
 
               {/* Minutes */}
-              <motion.div 
+              <motion.div
                 className="flex flex-col items-center"
                 whileHover={{ y: -5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
@@ -145,7 +145,7 @@ const Hero = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-yellow/20 blur-xl rounded-lg" />
                   <div className="relative bg-gradient-to-br from-black/60 to-black/40 rounded-xl p-3 sm:p-4 md:p-6 border border-yellow/40 min-w-[60px] sm:min-w-[80px] md:min-w-[100px]">
-                    <motion.span 
+                    <motion.span
                       key={timeLeft.minutes}
                       initial={{ y: -20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
@@ -159,7 +159,7 @@ const Hero = () => {
               </motion.div>
 
               {/* Seconds */}
-              <motion.div 
+              <motion.div
                 className="flex flex-col items-center"
                 whileHover={{ y: -5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
@@ -167,7 +167,7 @@ const Hero = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-primary/20 blur-xl rounded-lg" />
                   <div className="relative bg-gradient-to-br from-black/60 to-black/40 rounded-xl p-3 sm:p-4 md:p-6 border border-primary/40 min-w-[60px] sm:min-w-[80px] md:min-w-[100px]">
-                    <motion.span 
+                    <motion.span
                       key={timeLeft.seconds}
                       initial={{ y: -20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
