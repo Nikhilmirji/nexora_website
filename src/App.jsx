@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Sponsors from './components/Sponsors';
+import InstagramProfileCard from './components/InstagramProfileCard';
 import FAQs from './components/FAQs';
 import Contact from './components/Contact';
 import Recruitment from './components/Recruitment';
@@ -37,6 +38,7 @@ function App() {
             <Hero />
             <About />
             <Sponsors />
+            <InstagramProfileCard />
             <FAQs />
             <Contact />
             <Recruitment />
