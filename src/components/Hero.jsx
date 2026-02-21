@@ -4,18 +4,25 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   // Countdown timer state
   const [timeLeft, setTimeLeft] = useState({
-    hours: 7,
-    minutes: 22,
+    hours: 0,
+    minutes: 0,
     seconds: 0
   });
 
   useEffect(() => {
-    // Set target time to 7 hours 22 minutes from now
-    const targetTime = new Date().getTime() + (7 * 60 * 60 * 1000) + (22 * 60 * 1000);
+    // Set target time to today at 8:00 PM
+    const now = new Date();
+    const target = new Date();
+    target.setHours(20, 0, 0, 0); // 8:00 PM today
+    
+    // If 8 PM has already passed today, set it for tomorrow
+    if (now.getTime() > target.getTime()) {
+      target.setDate(target.getDate() + 1);
+    }
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const difference = targetTime - now;
+    const updateTimer = () => {
+      const currentTime = new Date().getTime();
+      const difference = target.getTime() - currentTime;
 
       if (difference > 0) {
         const hours = Math.floor(difference / (1000 * 60 * 60));
@@ -25,9 +32,14 @@ const Hero = () => {
         setTimeLeft({ hours, minutes, seconds });
       } else {
         setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
-        clearInterval(timer);
       }
-    }, 1000); // Update every second
+    };
+
+    // Update immediately
+    updateTimer();
+    
+    // Then update every second
+    const timer = setInterval(updateTimer, 1000);
 
     return () => clearInterval(timer);
   }, []);
