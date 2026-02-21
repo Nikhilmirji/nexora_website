@@ -3,7 +3,7 @@ import { ArrowLeft, Bell, MoreHorizontal, Check, MessageCircle, UserPlus, Instag
 
 const InstagramProfileCard = ({
   username = 'nexora_nmit',
-  profileImage = '/club_logo.jpeg',
+  profileImage = '/assets/club_logo.jpeg',
   followers = '1.2K',
   following = '45',
   posts = '34',
@@ -19,7 +19,7 @@ const InstagramProfileCard = ({
       {/* Section Title */}
       <div className="flex flex-col items-center text-center mb-16 z-20">
         <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 tracking-wide">
-          Social <span className="text-primary">!</span>
+          Socials
         </h2>
         <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full" />
       </div>
