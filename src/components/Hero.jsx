@@ -5,13 +5,13 @@ const Hero = () => {
   // Countdown timer state
   const [timeLeft, setTimeLeft] = useState({
     hours: 7,
-    minutes: 25,
+    minutes: 22,
     seconds: 0
   });
 
   useEffect(() => {
-    // Set target time to 7 hours 25 minutes from now
-    const targetTime = new Date().getTime() + (7 * 60 * 60 * 1000) + (25 * 60 * 1000);
+    // Set target time to 7 hours 22 minutes from now
+    const targetTime = new Date().getTime() + (7 * 60 * 60 * 1000) + (22 * 60 * 1000);
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -96,7 +96,7 @@ const Hero = () => {
               }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
-              Results Announcement
+              Recruitment Results Announcement
             </motion.h2>
             <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full" />
           </div>
