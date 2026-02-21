@@ -7,7 +7,6 @@ const navItems = [
   { id: 'sponsors', label: 'Sponsors' },
   { id: 'faqs', label: 'FAQs' },
   { id: 'contact', label: 'Contact Us' },
-  { id: 'recruitment', label: 'Recruitment', highlight: true },
 ];
 
 const Navbar = () => {
@@ -64,13 +63,13 @@ const Navbar = () => {
         >
           {/* Logo */}
           <div
-            className="flex items-center gap-2.5 cursor-pointer px-3 py-2 rounded-full hover:bg-white/[0.06] transition-all duration-300 mr-4"
+            className="flex items-center cursor-pointer px-5 rounded-full hover:bg-white/[0.06] transition-all duration-300 "
             onClick={() => scrollTo('home')}
           >
             <img
-              src="/club_logo.jpeg"
+              src="/assets/logo.png"
               alt="Nexora"
-              className="w-8 h-8 rounded-full border border-primary/40 shadow-[0_0_12px_rgba(0,240,255,0.2)]"
+              className="w-10 h-10 rounded-full ml-[-15px]"
             />
             <span className="font-[var(--font-heading)] text-primary font-bold text-sm tracking-[0.15em]">
               NE<span className="text-yellow">X</span>ORA
@@ -85,9 +84,9 @@ const Navbar = () => {
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className={`nav-item relative px-6 py-2.5 text-[13px] font-semibold tracking-wide rounded-full whitespace-nowrap transition-all duration-300 ${
+              className={`nav-item cursor-pointer relative px-6 py-2.5 text-[13px] font-semibold tracking-wide rounded-full whitespace-nowrap transition-all duration-300 ${
                 item.highlight
-                  ? 'bg-gradient-to-r from-accent/30 to-accent/10 text-accent-bright border border-accent/40 hover:border-accent/60 hover:shadow-[0_0_24px_rgba(124,58,237,0.4)] hover:from-accent/50 hover:to-accent/25 hover:text-white hover:scale-105'
+                  ? 'bg-primary text-primary-foreground shadow-[0_0_15px_rgba(0,240,255,0.4)] border border-primary hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(0,240,255,0.6)] hover:scale-105'
                   : activeSection === item.id
                   ? 'text-primary bg-primary/[0.12] shadow-[0_0_16px_rgba(0,240,255,0.15)]'
                   : 'text-[#8892a4] hover:text-white hover:bg-white/[0.08] hover:shadow-[0_0_12px_rgba(255,255,255,0.05)] hover:scale-105'
@@ -134,7 +133,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => scrollTo('home')}>
             <img
-              src="/club_logo.jpeg"
+              src="/assets/club_logo.jpeg"
               alt="Nexora"
               className="w-8 h-8 rounded-full border border-primary/40 shadow-[0_0_12px_rgba(0,240,255,0.2)]"
             />
@@ -179,7 +178,7 @@ const Navbar = () => {
                     onClick={() => scrollTo(item.id)}
                     className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                       item.highlight
-                        ? 'bg-gradient-to-r from-accent/20 to-transparent text-accent-bright border border-accent/30 hover:border-accent/50'
+                        ? 'bg-primary/10 text-primary border border-primary/50'
                         : activeSection === item.id
                         ? 'text-primary bg-primary/[0.08]'
                         : 'text-[#8892a4] hover:text-white hover:bg-white/[0.06]'

@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+import SpotlightCard from './SpotlightCard';
+
 const cards = [
   {
     title: 'Why Vibe Coding Club',
@@ -72,53 +74,30 @@ const Recruitment = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="glass rounded-2xl p-8 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all duration-300"
+                className="h-full"
               >
-                <h3 className="font-[var(--font-heading)] text-lg font-semibold text-accent-bright mb-5">
-                  {card.title}
-                </h3>
-                <ul className="space-y-3">
-                  {card.points.map((point, j) => (
-                    <li key={j} className="flex items-start gap-3 text-text-secondary text-sm">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+                <SpotlightCard 
+                  className="glass rounded-2xl p-8 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 transition-all duration-300 h-full"
+                  spotlightColor="rgba(0, 240, 255, 0.25)"
+                >
+                  <h3 className="font-[var(--font-heading)] text-lg font-semibold text-accent-bright mb-5 relative z-10">
+                    {card.title}
+                  </h3>
+                  <ul className="space-y-3 relative z-10">
+                    {card.points.map((point, j) => (
+                      <li key={j} className="flex items-start gap-3 text-text-secondary text-sm">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </SpotlightCard>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Register Button */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-col items-center text-center"
-        >
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <a
-              href="https://forms.gle/FpbvEwM9DjpdEFkm6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-accent hover:bg-accent-bright text-white font-[var(--font-heading)] font-semibold text-lg rounded-xl btn-glow transition-all duration-300 hover:scale-105"
-            >
-              Register Now
-            </a>
-            <a
-              href="https://chat.whatsapp.com/JyObpf4rckXC5YuEcRvK9h"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-green-600 hover:bg-green-500 text-white font-[var(--font-heading)] font-semibold text-lg rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-green-600/20"
-            >
-              Join WhatsApp Group
-            </a>
-          </div>
-          <p className="text-text-dim text-sm mt-4">
-            Google Form link will be updated once recruitment opens.
-          </p>
-        </motion.div>
+
       </div>
     </section>
   );
