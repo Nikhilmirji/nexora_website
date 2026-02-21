@@ -142,7 +142,7 @@ export default function CountdownTimer() {
           transition={{ delay: 0.5, duration: 0.8 }}
           style={{ textShadow: '0 0 10px rgba(255,204,0,0.5)' }}
         >
-          Check out our Instagram !
+          Click here to check out our <span className="text-primary" style={{ textShadow: '0 0 10px rgba(0,240,255,0.8)' }}>Instagram</span> !
         </motion.button>
       ) : (
         <motion.p
