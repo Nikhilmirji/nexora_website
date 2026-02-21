@@ -62,7 +62,7 @@ export default function CountdownTimer() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-yellow/5 via-transparent to-accent/5 rounded-2xl pointer-events-none" />
           <h3 className="relative z-10 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[var(--font-heading)] font-bold text-yellow" style={{ textShadow: '0 0 20px rgba(255,204,0,0.8)' }}>
-            Results are Out !
+            Results are Out!
           </h3>
           
           <motion.div
