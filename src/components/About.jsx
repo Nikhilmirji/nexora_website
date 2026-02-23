@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { Linkedin, Github, Instagram, Twitter, Globe } from 'lucide-react';
 
 const events = [
   { image: '/assets/image1.jpeg' },
@@ -21,14 +22,88 @@ const facultyAdvisors = [
 ];
 
 const coreMembers = [
-  { name: 'Rudraksh Gajendra Shende', role: 'Club Lead', img: '/assets/lead.jpeg' },
-  { name: 'Patil Aryan', role: 'Co-Lead', img: '/assets/co_lead.jpeg' },
-  { name: 'Niranjan Chennakrishnasrinivasan', role: 'General Secretary', img: '/assets/general_secratary.jpeg' },
-  { name: 'Rudransh Karan', role: 'Sponsorship Lead', img: '/assets/sponsleader.jpeg' },
-  { name: 'Prathamesh D M', role: 'Social Media Lead', img: '/assets/social_media_lead.jpeg' },
-  { name: 'Dhananjaya K', role: 'Design Lead', img: '/assets/design_lead.jpeg' },
-  { name: 'Gurucharan M.', role: 'Tech Lead', img: '/assets/image.png' },
-  { name: 'Nikhil Mirji', role: 'Operations Lead', img: '/assets/operation_lead.jpeg' },
+  { 
+    name: 'Rudraksh Gajendra Shende', 
+    role: 'Club Lead', 
+    img: '/assets/lead.jpeg',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/rudraksh-s-a02800314/',
+      github: 'https://github.com/HyperRudy',
+      instagram: 'https://www.instagram.com/ydurrepyh/',
+      portfolio: 'https://rudyhacx.vercel.app/'
+    }
+  },
+  { 
+    name: 'Patil Aryan', 
+    role: 'Co-Lead', 
+    img: '/assets/co_lead.jpeg',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/patil-aryan-1410322b0/',
+      github: 'https://github.com/patilaryan108',
+      instagram: 'https://www.instagram.com/aka.ganesh108/',
+      portfolio: 'https://patil-aryan-portfolio.vercel.app/'
+    }
+  },
+  { 
+    name: 'Niranjan Chennakrishnasrinivasan', 
+    role: 'General Secretary', 
+    img: '/assets/general_secratary.jpeg',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/niranjan-chennakrishnasrinivasan-499063299/',
+      instagram: 'https://www.instagram.com/the_dragonaut/'
+    }
+  },
+  { 
+    name: 'Rudransh Karan', 
+    role: 'Sponsorship Lead', 
+    img: '/assets/sponsleader.jpeg',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/rudransh-karan',
+      github: 'https://github.com/RudranshKaran',
+      instagram: 'https://www.instagram.com/rudranshkaran',
+      twitter: 'https://x.com/rudransh_karan',
+      portfolio: 'https://rudranshkaran.tech'
+    }
+  },
+  { 
+    name: 'Prathamesh D M', 
+    role: 'Social Media Lead', 
+    img: '/assets/social_media_lead.jpeg',
+    socials: {
+      instagram: 'https://www.instagram.com/prathamesh_165/',
+      linkedin: 'https://in.linkedin.com/in/prathamesh-dayanand-meghannavar-b78980348'
+    }
+  },
+  { 
+    name: 'Dhananjaya K', 
+    role: 'Design Lead', 
+    img: '/assets/design_lead.jpeg',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/dhananjaya-k-981452355',
+      github: 'https://github.com/theDjay2529',
+      instagram: 'https://www.instagram.com/djay.in'
+    }
+  },
+  { 
+    name: 'Gurucharan M.', 
+    role: 'Tech Lead', 
+    img: '/assets/image.png',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/mgurucharan/',
+      instagram: 'https://www.instagram.com/guru.ch05/',
+      github: 'https://github.com/MGurucharan'
+    }
+  },
+  { 
+    name: 'Nikhil Mirji', 
+    role: 'Operations Lead', 
+    img: '/assets/operation_lead.jpeg',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/nikhil-mirji/',
+      github: 'https://github.com/nikhilcodes147',
+      instagram: 'https://www.instagram.com/star_guy_nikhil/'
+    }
+  },
 ];
 
 const SliderRow = ({ direction = 'right', speed = 25, size = '200px', items, rowIndex, activeCard, onCardClick, isExternalPaused, isDesktop }) => {
@@ -192,6 +267,37 @@ const CoreMemberCard = ({ member }) => {
             <p className="text-primary/80 font-medium tracking-wide text-sm md:text-base">
                 {member.role}
             </p>
+
+            {/* Socials - CYAN */}
+            {member.socials && (
+              <div className="flex gap-3 sm:gap-4 mt-2 items-center justify-center relative z-40">
+                {member.socials.linkedin && (
+                  <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:text-white hover:scale-110 transition-all duration-300">
+                    <Linkedin size={20} />
+                  </a>
+                )}
+                {member.socials.github && (
+                  <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:text-white hover:scale-110 transition-all duration-300">
+                    <Github size={20} />
+                  </a>
+                )}
+                {member.socials.instagram && (
+                  <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:text-white hover:scale-110 transition-all duration-300">
+                    <Instagram size={20} />
+                  </a>
+                )}
+                {member.socials.twitter && (
+                  <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:text-white hover:scale-110 transition-all duration-300">
+                    <Twitter size={20} />
+                  </a>
+                )}
+                {member.socials.portfolio && (
+                  <a href={member.socials.portfolio} target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:text-white hover:scale-110 transition-all duration-300">
+                    <Globe size={20} />
+                  </a>
+                )}
+              </div>
+            )}
             </div>
         </PixelCard>
       </div>
@@ -256,7 +362,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center text-center mb-20"
         >
-          <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">
+          <h2 className="font-[var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-5 tracking-wide">
             About <span className="text-primary">Us</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-6" />
@@ -287,7 +393,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="flex flex-col items-center text-center mb-12"
         >
-          <h3 className="font-[var(--font-heading)] text-xl sm:text-2xl font-semibold text-white mb-3">
+          <h3 className="font-[var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-5 tracking-wide">
             Events & <span className="text-primary">Highlights</span>
           </h3>
           <div className="w-12 h-0.5 bg-primary/40 rounded-full" />
@@ -315,7 +421,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col items-center text-center mb-14"
         >
-          <h3 className="font-[var(--font-heading)] text-xl sm:text-2xl font-semibold text-white mb-3">
+          <h3 className="font-[var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-5 tracking-wide">
             Founding <span className="text-primary">Member</span>
           </h3>
           <div className="w-12 h-0.5 bg-primary/40 rounded-full" />
@@ -350,7 +456,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.33 }}
           className="flex flex-col items-center text-center mb-14"
         >
-          <h3 className="font-[var(--font-heading)] text-xl sm:text-2xl font-semibold text-white mb-3">
+          <h3 className="font-[var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-5 tracking-wide">
             Faculty <span className="text-primary">Advisors</span>
           </h3>
           <div className="w-12 h-0.5 bg-primary/40 rounded-full" />
@@ -380,12 +486,13 @@ const About = () => {
 
         {/* ===== Core Members ===== */}
         <motion.div
+					id="teams"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.35 }}
           className="flex flex-col items-center text-center mb-14"
         >
-          <h3 className="font-[var(--font-heading)] text-xl sm:text-2xl font-semibold text-white mb-3">
+          <h3 className="font-[var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-5 tracking-wide">
             Core <span className="text-primary">Members</span>
           </h3>
           <div className="w-12 h-0.5 bg-primary/40 rounded-full" />
