@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
-import CountdownTimer from './CountdownTimer';
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-4 overflow-hidden gap-4 sm:gap-6"
+      className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-48 md:pb-64 px-4 overflow-hidden gap-4 sm:gap-6"
     >
       {/* Club Logo */}
       <motion.div
@@ -52,8 +51,7 @@ const Hero = () => {
           Vibe Coding Club of NMIT
         </motion.p>
 
-        {/* Isolated Countdown Component that handles its own 1s state without re-rendering Hero */}
-        <CountdownTimer />
+
       </motion.div>
     </section>
   );
