@@ -4,9 +4,9 @@ import { ArrowLeft, Bell, MoreHorizontal, Check, MessageCircle, UserPlus, Instag
 const InstagramProfileCard = ({
   username = 'nexora_nmit',
   profileImage = '/assets/club_logo.jpeg',
-  followers = '1.2K',
-  following = '45',
-  posts = '34',
+  followers = '144',
+  following = '4',
+  posts = '7',
   bio = '< Where imagination meets execution ! />',
   profileUrl = 'https://instagram.com/nexora_nmit'
 }) => {
