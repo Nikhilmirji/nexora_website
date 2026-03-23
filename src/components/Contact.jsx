@@ -54,25 +54,65 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="flex items-center justify-center gap-10">
-          {socials.map((social, i) => (
-            <motion.a
-              key={social.name}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="glass rounded-xl p-6 flex flex-col items-center text-text-secondary hover:text-primary hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-2 group"
-              title={social.name}
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12 relative z-10 mt-12">
+          {/* Left Column: Map */}
+          <div className="w-full order-2 lg:order-1">
+            <motion.div 
+               initial={{ opacity: 0, x: -30 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6, delay: 0.2 }}
+               className="w-full h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden border-2 border-white/10 shadow-[0_0_20px_rgba(0,240,255,0.15)] group relative"
             >
-              <div className="group-hover:drop-shadow-[0_0_8px_rgba(0,240,255,0.6)] transition-all duration-300">
-                {social.icon}
-              </div>
-              <p className="text-xs mt-3 font-medium">{social.name}</p>
-            </motion.a>
-          ))}
+              <div className="absolute inset-0 bg-primary/20 mix-blend-overlay pointer-events-none z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+              <iframe
+                src="https://maps.google.com/maps?q=Nitte+Meenakshi+Institute+of+Technology&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="NMIT Location Map"
+                className="relative z-0 grayscale-[0.3] invert-[0.9] hue-rotate-180 contrast-125 transition-all duration-500 group-hover:grayscale-0 group-hover:invert-0 group-hover:hue-rotate-0"
+              ></iframe>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Socials */}
+          <div className="w-full flex flex-col items-center justify-center order-1 lg:order-2 h-full">
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-2xl font-bold text-white mb-8 font-[var(--font-heading)] text-center hidden lg:block"
+            >
+              Connect With <span className="text-primary">Us</span>
+            </motion.h3>
+            
+            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+              {socials.map((social, i) => (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                  className="glass rounded-2xl p-6 sm:p-8 flex flex-col items-center text-text-secondary hover:text-primary hover:border-primary/40 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(0,240,255,0.2)] transition-all duration-300 hover:-translate-y-2 group w-[120px] sm:w-[140px]"
+                  title={social.name}
+                >
+                  <div className="group-hover:drop-shadow-[0_0_12px_rgba(0,240,255,0.8)] transition-all duration-300 mb-4 scale-110 sm:scale-125">
+                    {social.icon}
+                  </div>
+                  <p className="text-xs sm:text-sm font-semibold tracking-wide">{social.name}</p>
+                </motion.a>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Footer */}

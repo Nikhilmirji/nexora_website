@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ExternalLink, Calendar, MapPin, Clock } from 'lucide-react';
+import { ExternalLink, Calendar, MapPin, Clock, Trophy, Award, Heart, Coins, Leaf, Cpu, Lightbulb } from 'lucide-react';
 
 const timelineData = [
   { time: "02:00–02:30 PM", activity: "Inauguration", details: "Opening, rules, and instructions" },
@@ -19,6 +19,20 @@ const timelineData = [
   { time: "01:30–02:00 PM", activity: "Break", details: "—" },
   { time: "02:00–02:30 PM", activity: "Results", details: "Prize distribution" },
   { time: "02:30–03:00 PM", activity: "Closing Ceremony", details: "Feedback and photo session" },
+];
+
+const mainPrizes = [
+    { place: "1st Place", amount: "₹40,000", bg: "from-yellow-400/20 to-yellow-600/5", border: "border-yellow-400/50", text: "text-yellow-400", icon: <Trophy className="w-12 h-12" /> },
+    { place: "2nd Place", amount: "₹25,000", bg: "from-slate-300/20 to-slate-500/5", border: "border-slate-300/50", text: "text-slate-300", icon: <Award className="w-12 h-12" /> },
+    { place: "3rd Place", amount: "₹15,000", bg: "from-amber-600/20 to-amber-800/5", border: "border-amber-600/50", text: "text-amber-500", icon: <Award className="w-12 h-12" /> },
+];
+
+const tracksData = [
+    { title: "Healthcare and Med-Tech", prize: "₹10,000", icon: <Heart className="w-7 h-7" /> },
+    { title: "Fintech and Financial Inclusion", prize: "₹10,000", icon: <Coins className="w-7 h-7" /> },
+    { title: "Sustainability and Climate Tech", prize: "₹10,000", icon: <Leaf className="w-7 h-7" /> },
+    { title: "AI and Automation", prize: "₹10,000", icon: <Cpu className="w-7 h-7" /> },
+    { title: "Open Innovation", prize: "₹10,000", icon: <Lightbulb className="w-7 h-7" /> },
 ];
 
 const Events = () => {
@@ -70,7 +84,7 @@ const Events = () => {
                             </div>
                             
                             <h3 className="text-3xl md:text-5xl font-[var(--font-heading)] font-bold text-white mb-4 tracking-tight">
-                                VIBE-A-<span className="text-primary">THON</span> 2026
+                                VIBE-A-THON 2026
                             </h3>
                             
                             <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8">
@@ -109,6 +123,83 @@ const Events = () => {
                         </div>
                     </div>
                 </motion.div>
+
+                {/* Rewards and Prizes Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex flex-col items-center text-center mb-12 mt-12"
+                >
+                    <h3 className="font-[var(--font-heading)] text-3xl md:text-5xl font-bold text-white mb-5 tracking-wide">
+                        Rewards & <span className="text-primary">Prizes</span>
+                    </h3>
+                    <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-6" />
+                    <p className="text-gray-400 max-w-2xl mx-auto mb-10 text-sm md:text-base px-4">
+                        Compete for a massive prize pool and exclusive track rewards! Build something amazing and take home the cash.
+                    </p>
+                </motion.div>
+
+                <div className="w-full mb-32 max-w-5xl mx-auto">
+                    {/* Top 3 Prizes */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                        {mainPrizes.map((prize, idx) => (
+                            <motion.div 
+                                key={idx}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, margin: '-50px' }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                className={`relative group p-8 rounded-[2rem] bg-gradient-to-b ${prize.bg} border-2 ${prize.border} backdrop-blur-md flex flex-col items-center justify-center overflow-hidden hover:-translate-y-2 transition-all duration-300 shadow-xl`}
+                            >
+                                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className={`mb-6 relative z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] ${prize.text}`}>
+                                    {prize.icon}
+                                </div>
+                                <h4 className={`text-xl md:text-2xl font-bold mb-3 ${prize.text} relative z-10 uppercase tracking-widest`}>{prize.place}</h4>
+                                <div className="text-4xl md:text-5xl font-[var(--font-heading)] font-black text-white tracking-tight relative z-10 drop-shadow-md">
+                                    {prize.amount}
+                                    <span className="block text-sm font-semibold text-gray-400 tracking-widest mt-2 uppercase text-center">CASH</span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Tracks and Track Prizes */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-50px' }}
+                        transition={{ duration: 0.6 }}
+                        className="flex flex-col items-center text-center mb-10"
+                    >
+                        <h4 className="text-2xl md:text-3xl font-[var(--font-heading)] font-bold text-white mb-3">
+                            <span className="text-primary">Track</span> Prizes
+                        </h4>
+                        <div className="w-12 h-1 bg-primary/50 rounded-full mb-6" />
+                    </motion.div>
+
+                    <div className="flex flex-wrap justify-center gap-5">
+                        {tracksData.map((track, idx) => (
+                            <motion.div 
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: '-50px' }}
+                                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                                className="w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.84rem)] p-6 bg-[#0a0a0a]/80 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center gap-5 hover:bg-white/5 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] transition-all duration-300 group"
+                            >
+                                <div className="p-4 bg-primary/10 border border-primary/20 rounded-xl text-primary group-hover:bg-primary group-hover:text-[#0a0a0a] group-hover:scale-110 transition-all duration-300 shadow-inner">
+                                    {track.icon}
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-white font-bold leading-snug mb-1 text-sm md:text-base group-hover:text-primary transition-colors">{track.title}</span>
+                                    <span className="text-pink-400 font-black text-lg">{track.prize} <span className="text-xs text-gray-400 font-semibold tracking-wider">CASH</span></span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
 
                 {/* Timeline Section */}
                 <motion.div

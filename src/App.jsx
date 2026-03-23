@@ -6,7 +6,6 @@ import Sponsors from './components/Sponsors';
 import Events from './components/Events';
 import FAQs from './components/FAQs';
 import Contact from './components/Contact';
-import Recruitment from './components/Recruitment';
 import SmoothScrolling from './components/SmoothScrolling';
 
 function App() {
@@ -41,7 +40,6 @@ function App() {
             <Events />
             <FAQs />
             <Contact />
-            <Recruitment />
           </main>
         </div>
       </div>
