@@ -1,0 +1,172 @@
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { ExternalLink, Calendar, MapPin, Clock } from 'lucide-react';
+
+const timelineData = [
+  { time: "02:00–02:30 PM", activity: "Inauguration", details: "Opening, rules, and instructions" },
+  { time: "02:30–03:00 PM", activity: "Team Preparation", details: "Seating arrangements and system checks" },
+  { time: "03:00–07:30 PM", activity: "Hackathon Session I", details: "Start of VIBEA-THON" },
+  { time: "07:30–08:30 PM", activity: "Dinner Break", details: "—" },
+  { time: "08:30–11:00 PM", activity: "Hackathon Session I (Contd.)", details: "Continuation of hackathon" },
+  { time: "11:00–11:30 PM", activity: "Midnight Snacks Break", details: "—" },
+  { time: "11:30 PM–06:00 AM", activity: "Hackathon Session I (Contd.)", details: "Overnight development session" },
+  { time: "06:00–07:00 AM", activity: "Progress Submission I", details: "Video demonstration submission" },
+  { time: "07:00–08:00 AM", activity: "Evaluation I", details: "Analysis of submitted videos by judges" },
+  { time: "08:00–08:45 AM", activity: "Breakfast Break", details: "—" },
+  { time: "08:45 AM–12:00 PM", activity: "Hackathon Session II", details: "Refinement and updates" },
+  { time: "12:00–12:30 PM", activity: "Final Submission", details: "Uploading final documentation" },
+  { time: "12:30–01:30 PM", activity: "Final Evaluation", details: "PPT-based evaluation" },
+  { time: "01:30–02:00 PM", activity: "Break", details: "—" },
+  { time: "02:00–02:30 PM", activity: "Results", details: "Prize distribution" },
+  { time: "02:30–03:00 PM", activity: "Closing Ceremony", details: "Feedback and photo session" },
+];
+
+const Events = () => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: '-80px' });
+
+    return (
+        <section id="events" className="relative py-28 overflow-hidden z-10 w-full" ref={ref}>
+            <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
+            <div className="absolute bottom-1/4 right-[-10%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
+
+            <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+                {/* Section Title */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6 }}
+                    className="flex flex-col items-center text-center mb-16"
+                >
+                    <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 tracking-wide">
+                        Flagship <span className="text-primary">Event</span>
+                    </h2>
+                    <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-6" />
+                </motion.div>
+
+                {/* Flagship Event Card */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="w-full relative group mb-24"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="relative w-full bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden flex flex-col md:flex-row shadow-2xl">
+                        
+                        {/* Event Logo Side */}
+                        <div className="w-full md:w-2/5 md:min-w-[300px] relative p-8 flex items-center justify-center bg-gradient-to-br from-white/5 to-transparent border-b md:border-b-0 md:border-r border-white/10 overflow-hidden">
+                            <div className="absolute inset-0 bg-[url('/assets/club_logo.jpeg')] bg-cover bg-center opacity-20 blur-sm scale-110 group-hover:scale-100 group-hover:opacity-30 transition-all duration-700"></div>
+                            <div className="relative z-10 w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-primary/30 p-2 shadow-[0_0_30px_rgba(0,240,255,0.3)] bg-[#02093D]">
+                                <img src="/assets/club_logo.jpeg" alt="Nexora Code Club Logo" className="w-full h-full object-cover rounded-full" />
+                            </div>
+                        </div>
+
+                        {/* Event Details Side */}
+                        <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                            <div className="flex items-center gap-3 mb-4">
+                                <span className="px-3 py-1 bg-primary/20 text-primary border border-primary/30 rounded-full text-xs font-bold tracking-wider uppercase">Hackathon</span>
+                                <span className="px-3 py-1 bg-pink-500/20 text-pink-400 border border-pink-500/30 rounded-full text-xs font-bold tracking-wider uppercase">24 Hours</span>
+                            </div>
+                            
+                            <h3 className="text-3xl md:text-5xl font-[var(--font-heading)] font-bold text-white mb-4 tracking-tight">
+                                VIBE-A-<span className="text-primary">THON</span> 2026
+                            </h3>
+                            
+                            <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8">
+                                Join us for a 24-hour coding marathon where imagination meets execution. Build real-world solutions, collaborate with top talent, and win exciting prizes. Whether you're a seasoned developer or a passionate beginner, this is your chance to showcase your skills.
+                            </p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                                <div className="flex items-center gap-3 text-gray-300">
+                                    <div className="p-2 bg-white/5 rounded-lg border border-white/10">
+                                        <Calendar className="w-5 h-5 text-primary" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-xs text-gray-500 font-medium">Date</span>
+                                        <span className="text-sm font-semibold">25th - 26th April 2026</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 text-gray-300">
+                                    <div className="p-2 bg-white/5 rounded-lg border border-white/10">
+                                        <MapPin className="w-5 h-5 text-pink-400" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-xs text-gray-500 font-medium">Location</span>
+                                        <span className="text-sm font-semibold">NMIT, Yelahanka</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <a 
+                                href="https://unstop.com/p/vibe-a-thon-2026-nitte-meenakshi-institute-of-technology-nmit-yelahanka-1663230?rstatus=1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-primary text-[#02093D] font-bold rounded-xl hover:bg-white hover:text-[#02093D] hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] hover:-translate-y-1 transition-all duration-300"
+                            >
+                                Register on Unstop <ExternalLink className="w-5 h-5" />
+                            </a>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* Timeline Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex flex-col items-center text-center mb-12"
+                >
+                    <h3 className="font-[var(--font-heading)] text-2xl md:text-4xl font-bold text-white mb-5 tracking-wide">
+                        Event <span className="text-primary">Timeline</span>
+                    </h3>
+                    <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-6" />
+                </motion.div>
+
+                <div className="relative max-w-4xl mx-auto">
+                    {/* Vertical line through the timeline */}
+                    <div className="absolute left-[36px] md:left-1/2 md:-ml-[1px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-primary/50 via-purple-500/50 to-primary/50 hidden sm:block"></div>
+
+                    <div className="relative space-y-6">
+                        {timelineData.map((item, index) => {
+                            const isEven = index % 2 === 0;
+                            return (
+                                <motion.div 
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: '-50px' }}
+                                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                                    className={`relative flex flex-col md:flex-row items-center justify-between ${isEven ? 'md:flex-row-reverse' : ''}`}
+                                >
+                                    {/* Timeline dot */}
+                                    <div className="absolute left-[36px] md:left-1/2 -ml-2 w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_rgba(0,240,255,0.8)] border-2 border-[#0a0a0a] z-10 hidden sm:block"></div>
+                                    
+                                    {/* Empty space for the other side */}
+                                    <div className="hidden md:block w-5/12"></div>
+
+                                    {/* Content Card */}
+                                    <div className={`w-full sm:w-[calc(100%-80px)] sm:ml-[80px] md:w-5/12 md:ml-0 group`}>
+                                        <div className="p-5 md:p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl hover:border-primary/50 hover:bg-white/10 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,240,255,0.15)] hover:-translate-y-1">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <Clock className="w-4 h-4 text-primary" />
+                                                <span className="text-primary font-mono text-sm font-semibold tracking-wide">{item.time}</span>
+                                            </div>
+                                            <h4 className="text-white text-lg font-bold mb-1 group-hover:text-primary transition-colors">{item.activity}</h4>
+                                            {item.details && item.details !== '—' && (
+                                                <p className="text-gray-400 text-sm leading-relaxed">{item.details}</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    );
+};
+
+export default Events;
