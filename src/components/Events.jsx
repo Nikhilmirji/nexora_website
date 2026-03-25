@@ -3,22 +3,22 @@ import { motion, useInView } from 'framer-motion';
 import { ExternalLink, Calendar, MapPin, Clock, Trophy, Award, Heart, Coins, Leaf, Cpu, Lightbulb } from 'lucide-react';
 
 const timelineData = [
-  { time: "02:00–02:30 PM", activity: "Inauguration", details: "Opening, rules, and instructions" },
-  { time: "02:30–03:00 PM", activity: "Team Preparation", details: "Seating arrangements and system checks" },
-  { time: "03:00–07:30 PM", activity: "Hackathon Session I", details: "Start of VIBEA-THON" },
-  { time: "07:30–08:30 PM", activity: "Dinner Break", details: "—" },
-  { time: "08:30–11:00 PM", activity: "Hackathon Session I (Contd.)", details: "Continuation of hackathon" },
-  { time: "11:00–11:30 PM", activity: "Midnight Snacks Break", details: "—" },
-  { time: "11:30 PM–06:00 AM", activity: "Hackathon Session I (Contd.)", details: "Overnight development session" },
-  { time: "06:00–07:00 AM", activity: "Progress Submission I", details: "Video demonstration submission" },
-  { time: "07:00–08:00 AM", activity: "Evaluation I", details: "Analysis of submitted videos by judges" },
-  { time: "08:00–08:45 AM", activity: "Breakfast Break", details: "—" },
-  { time: "08:45 AM–12:00 PM", activity: "Hackathon Session II", details: "Refinement and updates" },
-  { time: "12:00–12:30 PM", activity: "Final Submission", details: "Uploading final documentation" },
-  { time: "12:30–01:30 PM", activity: "Final Evaluation", details: "PPT-based evaluation" },
-  { time: "01:30–02:00 PM", activity: "Break", details: "—" },
-  { time: "02:00–02:30 PM", activity: "Results", details: "Prize distribution" },
-  { time: "02:30–03:00 PM", activity: "Closing Ceremony", details: "Feedback and photo session" },
+  { time: "02:00–02:30 PM", activity: "Inauguration", details: "Opening, rules, and instructions", date: "25th April 2026" },
+  { time: "02:30–03:00 PM", activity: "Team Preparation", details: "Seating arrangements and system checks", date: "25th April 2026" },
+  { time: "03:00–07:30 PM", activity: "Hackathon Session I", details: "Start of VIBEA-THON", date: "25th April 2026" },
+  { time: "07:30–08:30 PM", activity: "Dinner Break", details: "—", date: "25th April 2026" },
+  { time: "08:30–11:00 PM", activity: "Hackathon Session I (Contd.)", details: "Continuation of hackathon", date: "25th April 2026" },
+  { time: "11:00–11:30 PM", activity: "Midnight Snacks Break", details: "—", date: "25th April 2026" },
+  { time: "11:30 PM–06:00 AM", activity: "Hackathon Session I (Contd.)", details: "Overnight development session", date: "25th–26th April 2026" },
+  { time: "06:00–07:00 AM", activity: "Progress Submission I", details: "Video demonstration submission", date: "26th April 2026" },
+  { time: "07:00–08:00 AM", activity: "Evaluation I", details: "Analysis of submitted videos by judges", date: "26th April 2026" },
+  { time: "08:00–08:45 AM", activity: "Breakfast Break", details: "—", date: "26th April 2026" },
+  { time: "08:45 AM–12:00 PM", activity: "Hackathon Session II", details: "Refinement and updates", date: "26th April 2026" },
+  { time: "12:00–12:30 PM", activity: "Final Submission", details: "Uploading final documentation", date: "26th April 2026" },
+  { time: "12:30–01:30 PM", activity: "Final Evaluation", details: "PPT-based evaluation", date: "26th April 2026" },
+  { time: "01:30–02:00 PM", activity: "Break", details: "—", date: "26th April 2026" },
+  { time: "02:00–02:30 PM", activity: "Results", details: "Prize distribution", date: "26th April 2026" },
+  { time: "02:30–03:00 PM", activity: "Closing Ceremony", details: "Feedback and photo session", date: "26th April 2026" },
 ];
 
 const mainPrizes = [
@@ -66,7 +66,14 @@ const Events = () => {
                     className="w-full relative group mb-24"
                 >
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="relative w-full bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden flex flex-col md:flex-row shadow-2xl">
+                    
+                    {/* Animated Border Wrapper */}
+                    <div className="relative w-full rounded-[2rem] p-[2px] overflow-hidden shadow-2xl z-10">
+                        {/* The rotating gradient line */}
+                        <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_25%,#00f0ff_50%,transparent_50%,transparent_75%,#00f0ff_100%)]"></div>
+                        
+                        {/* Inner Content Card */}
+                        <div className="relative w-full bg-[#0a0a0a]/95 backdrop-blur-2xl rounded-[calc(2rem-2px)] overflow-hidden flex flex-col md:flex-row shadow-inner border border-white/5">
                         
                         {/* Event Logo Side */}
                         <div className="w-full md:w-2/5 md:min-w-[300px] relative p-8 flex items-center justify-center bg-gradient-to-br from-white/5 to-transparent border-b md:border-b-0 md:border-r border-white/10 overflow-hidden">
@@ -121,6 +128,7 @@ const Events = () => {
                                 Register on Unstop <ExternalLink className="w-5 h-5" />
                             </a>
                         </div>
+                    </div>
                     </div>
                 </motion.div>
 
@@ -239,9 +247,17 @@ const Events = () => {
                                     {/* Content Card */}
                                     <div className={`w-full sm:w-[calc(100%-80px)] sm:ml-[80px] md:w-5/12 md:ml-0 group`}>
                                         <div className="p-5 md:p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl hover:border-primary/50 hover:bg-white/10 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,240,255,0.15)] hover:-translate-y-1">
-                                            <div className="flex items-center gap-2 mb-2">
-                                                <Clock className="w-4 h-4 text-primary" />
-                                                <span className="text-primary font-mono text-sm font-semibold tracking-wide">{item.time}</span>
+                                            <div className="flex flex-col gap-1.5 mb-3">
+                                                <div className="flex items-center gap-2">
+                                                    <Clock className="w-4 h-4 text-primary" />
+                                                    <span className="text-primary font-mono text-sm font-semibold tracking-wide">{item.time}</span>
+                                                </div>
+                                                {item.date && (
+                                                    <div className="flex items-center gap-2">
+                                                        <Calendar className="w-4 h-4 text-pink-400" />
+                                                        <span className="text-pink-400 font-mono text-xs font-semibold tracking-widest uppercase">{item.date}</span>
+                                                    </div>
+                                                )}
                                             </div>
                                             <h4 className="text-white text-lg font-bold mb-1 group-hover:text-primary transition-colors">{item.activity}</h4>
                                             {item.details && item.details !== '—' && (

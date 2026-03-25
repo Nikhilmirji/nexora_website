@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import LightRays from './components/LightRays';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -9,6 +10,18 @@ import Contact from './components/Contact';
 import SmoothScrolling from './components/SmoothScrolling';
 
 function App() {
+  useEffect(() => {
+    // Add a small delay to ensure all components and the smooth scroller (Lenis) are fully ready
+    const timer = setTimeout(() => {
+      const eventsSection = document.getElementById('events');
+      if (eventsSection) {
+        eventsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <SmoothScrolling>
       <div className="relative w-full min-h-screen bg-bg-dark">

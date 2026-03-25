@@ -5,7 +5,7 @@ const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About Us' },
   { id: 'sponsors', label: 'Sponsors' },
-  { id: 'teams', label: 'Teams' },
+  { id: 'teams', label: 'Team' },
   { id: 'events', label: 'Events' },
   { id: 'faqs', label: 'FAQs' },
   { id: 'contact', label: 'Contact Us' },
