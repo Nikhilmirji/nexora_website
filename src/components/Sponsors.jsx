@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Brochure from './Brochure';
 
 const sponsors = [
   { name: 'Sponsor One', logo: '/assets/club_logo.jpeg' },
@@ -40,14 +41,18 @@ const Sponsors = () => {
           </motion.div>
         </div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center text-text-dim text-sm mt-12"
+          className="flex flex-col items-center mt-20"
         >
-          Interested in sponsoring Nexora? Reach out to us!
-        </motion.p>
+          <h3 className="font-[var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 text-center">
+            Interested in sponsoring Nexora? <br className="hidden sm:block" />
+            <span className="text-primary">Reach out to us!</span>
+          </h3>
+          <Brochure />
+        </motion.div>
 
       </div>
     </section>
