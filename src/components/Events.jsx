@@ -3,22 +3,22 @@ import { motion, useInView } from 'framer-motion';
 import { ExternalLink, Calendar, MapPin, Clock, Trophy, Award, Heart, Coins, Leaf, Cpu, Lightbulb } from 'lucide-react';
 
 const timelineData = [
-  { time: "02:00–02:30 PM", activity: "Inauguration", details: "Opening, rules, and instructions", date: "25th April 2026" },
-  { time: "02:30–03:00 PM", activity: "Team Preparation", details: "Seating arrangements and system checks", date: "25th April 2026" },
-  { time: "03:00–07:30 PM", activity: "Hackathon Session I", details: "Start of VIBEA-THON", date: "25th April 2026" },
-  { time: "07:30–08:30 PM", activity: "Dinner Break", details: "—", date: "25th April 2026" },
-  { time: "08:30–11:00 PM", activity: "Hackathon Session I (Contd.)", details: "Continuation of hackathon", date: "25th April 2026" },
-  { time: "11:00–11:30 PM", activity: "Midnight Snacks Break", details: "—", date: "25th April 2026" },
-  { time: "11:30 PM–06:00 AM", activity: "Hackathon Session I (Contd.)", details: "Overnight development session", date: "25th–26th April 2026" },
-  { time: "06:00–07:00 AM", activity: "Progress Submission I", details: "Video demonstration submission", date: "26th April 2026" },
-  { time: "07:00–08:00 AM", activity: "Evaluation I", details: "Analysis of submitted videos by judges", date: "26th April 2026" },
-  { time: "08:00–08:45 AM", activity: "Breakfast Break", details: "—", date: "26th April 2026" },
-  { time: "08:45 AM–12:00 PM", activity: "Hackathon Session II", details: "Refinement and updates", date: "26th April 2026" },
-  { time: "12:00–12:30 PM", activity: "Final Submission", details: "Uploading final documentation", date: "26th April 2026" },
-  { time: "12:30–01:30 PM", activity: "Final Evaluation", details: "PPT-based evaluation", date: "26th April 2026" },
-  { time: "01:30–02:00 PM", activity: "Break", details: "—", date: "26th April 2026" },
-  { time: "02:00–02:30 PM", activity: "Results", details: "Prize distribution", date: "26th April 2026" },
-  { time: "02:30–03:00 PM", activity: "Closing Ceremony", details: "Feedback and photo session", date: "26th April 2026" },
+  { time: "02:00–02:30 PM", activity: "Inauguration", details: "Opening, rules, and instructions", date: "2nd May 2026" },
+  { time: "02:30–03:00 PM", activity: "Team Preparation", details: "Seating arrangements and system checks", date: "2nd May 2026" },
+  { time: "03:00–07:30 PM", activity: "Hackathon Session I", details: "Start of VIBEA-THON", date: "2nd May 2026" },
+  { time: "07:30–08:30 PM", activity: "Dinner Break", details: "—", date: "2nd May 2026" },
+  { time: "08:30–11:00 PM", activity: "Hackathon Session I (Contd.)", details: "Continuation of hackathon", date: "2nd May 2026" },
+  { time: "11:00–11:30 PM", activity: "Midnight Snacks Break", details: "—", date: "2nd May 2026" },
+  { time: "11:30 PM–06:00 AM", activity: "Hackathon Session I (Contd.)", details: "Overnight development session", date: "2nd–3rd May 2026" },
+  { time: "06:00–07:00 AM", activity: "Progress Submission I", details: "Video demonstration submission", date: "3rd May 2026" },
+  { time: "07:00–08:00 AM", activity: "Evaluation I", details: "Analysis of submitted videos by judges", date: "3rd May 2026" },
+  { time: "08:00–08:45 AM", activity: "Breakfast Break", details: "—", date: "3rd May 2026" },
+  { time: "08:45 AM–12:00 PM", activity: "Hackathon Session II", details: "Refinement and updates", date: "3rd May 2026" },
+  { time: "12:00–12:30 PM", activity: "Final Submission", details: "Uploading final documentation", date: "3rd May 2026" },
+  { time: "12:30–01:30 PM", activity: "Final Evaluation", details: "PPT-based evaluation", date: "3rd May 2026" },
+  { time: "01:30–02:00 PM", activity: "Break", details: "—", date: "3rd May 2026" },
+  { time: "02:00–02:30 PM", activity: "Results", details: "Prize distribution", date: "3rd May 2026" },
+  { time: "02:30–03:00 PM", activity: "Closing Ceremony", details: "Feedback and photo session", date: "3rd May 2026" },
 ];
 
 const mainPrizes = [
@@ -105,7 +105,7 @@ const Events = () => {
                                     </div>
                                     <div className="flex flex-col">
                                         <span className="text-xs text-gray-500 font-medium">Date</span>
-                                        <span className="text-sm font-semibold">25th - 26th April 2026</span>
+                                        <span className="text-sm font-semibold">2nd - 3rd May 2026</span>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 text-gray-300">

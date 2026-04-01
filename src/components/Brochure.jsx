@@ -20,7 +20,7 @@ const Brochure = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full py-10 overflow-visible mt-6 mb-8" style={{ perspective: '1600px' }}>
+    <div id="brochure" className="flex justify-center items-center w-full py-10 overflow-visible mt-6 mb-8" style={{ perspective: '1600px' }}>
       <div 
         ref={brochureRef}
         onClick={() => setIsOpen(!isOpen)}

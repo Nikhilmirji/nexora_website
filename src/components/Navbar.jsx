@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About Us' },
-  { id: 'sponsors', label: 'Sponsors' },
+  { id: 'sponsors', label: 'Sponsors', subItems: [{ id: 'brochure', label: 'Brochure' }] },
   { id: 'teams', label: 'Team' },
   { id: 'events', label: 'Events' },
   { id: 'faqs', label: 'FAQs' },
@@ -83,33 +83,54 @@ const Navbar = () => {
 
           {/* Nav items */}
           {navItems.map(item => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className={`nav-item cursor-pointer relative px-6 py-2.5 text-[13px] font-semibold tracking-wide rounded-full whitespace-nowrap transition-all duration-300 ${
-                item.highlight
-                  ? 'bg-primary text-primary-foreground shadow-[0_0_15px_rgba(0,240,255,0.4)] border border-primary hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(0,240,255,0.6)] hover:scale-105'
-                  : activeSection === item.id
-                  ? 'text-primary bg-primary/[0.12] shadow-[0_0_16px_rgba(0,240,255,0.15)]'
-                  : 'text-[#8892a4] hover:text-white hover:bg-white/[0.08] hover:shadow-[0_0_12px_rgba(255,255,255,0.05)] hover:scale-105'
-              }`}
-            >
-              {item.label}
+            <div key={item.id} className="relative group flex items-center">
+              <button
+                onClick={() => scrollTo(item.id)}
+                className={`nav-item cursor-pointer relative px-6 py-2.5 text-[13px] font-semibold tracking-wide rounded-full whitespace-nowrap transition-all duration-300 ${
+                  item.highlight
+                    ? 'bg-primary text-primary-foreground shadow-[0_0_15px_rgba(0,240,255,0.4)] border border-primary hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(0,240,255,0.6)] hover:scale-105'
+                    : activeSection === item.id
+                    ? 'text-primary bg-primary/[0.12] shadow-[0_0_16px_rgba(0,240,255,0.15)]'
+                    : 'text-[#8892a4] hover:text-white hover:bg-white/[0.08] hover:shadow-[0_0_12px_rgba(255,255,255,0.05)] hover:scale-105'
+                }`}
+              >
+                {item.label}
 
-              {/* Active indicator - glowing underline bar */}
-              {activeSection === item.id && !item.highlight && (
-                <motion.span
-                  layoutId="navIndicator"
-                  className="absolute -bottom-[2px] left-1/2 -translate-x-1/2 w-5 h-[2px] rounded-full bg-primary shadow-[0_0_10px_rgba(0,240,255,0.9),0_0_20px_rgba(0,240,255,0.4)]"
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
+                {/* Active indicator - glowing underline bar */}
+                {activeSection === item.id && !item.highlight && (
+                  <motion.span
+                    layoutId="navIndicator"
+                    className="absolute -bottom-[2px] left-1/2 -translate-x-1/2 w-5 h-[2px] rounded-full bg-primary shadow-[0_0_10px_rgba(0,240,255,0.9),0_0_20px_rgba(0,240,255,0.4)]"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
 
-              {/* Highlight glow for recruitment */}
-              {item.highlight && (
-                <span className="absolute inset-0 rounded-full animate-[recruitment-pulse_2.5s_ease-in-out_infinite] pointer-events-none" />
+                {/* Highlight glow for recruitment */}
+                {item.highlight && (
+                  <span className="absolute inset-0 rounded-full animate-[recruitment-pulse_2.5s_ease-in-out_infinite] pointer-events-none" />
+                )}
+              </button>
+
+              {/* Sub-menu Dropdown */}
+              {item.subItems && (
+                <div className="absolute top-[100%] left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div className="bg-[rgba(8,8,28,0.95)] border border-primary/40 border-t-2 border-t-primary rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.6),0_0_20px_rgba(0,240,255,0.25)] flex flex-col p-2 min-w-[160px] backdrop-blur-2xl transition-transform duration-300 origin-top scale-95 group-hover:scale-100">
+                    {item.subItems.map(sub => (
+                      <button
+                        key={sub.id}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          scrollTo(sub.id);
+                        }}
+                        className="text-center w-full px-4 py-2.5 cursor-pointer rounded-lg text-[13px] font-semibold tracking-wide text-gray-300 hover:text-primary hover:bg-primary/20 transition-all duration-300"
+                      >
+                        {sub.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               )}
-            </button>
+            </div>
           ))}
         </div>
       </motion.nav>
@@ -172,25 +193,44 @@ const Navbar = () => {
             >
               <div className="space-y-1">
                 {navItems.map((item, i) => (
-                  <motion.button
-                    key={item.id}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    onClick={() => scrollTo(item.id)}
-                    className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
-                      item.highlight
-                        ? 'bg-primary/10 text-primary border border-primary/50'
-                        : activeSection === item.id
-                        ? 'text-primary bg-primary/[0.08]'
-                        : 'text-[#8892a4] hover:text-white hover:bg-white/[0.06]'
-                    }`}
-                  >
-                    {activeSection === item.id && !item.highlight && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,240,255,0.8)]" />
+                  <div key={item.id} className="relative space-y-1">
+                    <motion.button
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                      onClick={() => scrollTo(item.id)}
+                      className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                        item.highlight
+                          ? 'bg-primary/10 text-primary border border-primary/50'
+                          : activeSection === item.id
+                          ? 'text-primary bg-primary/[0.08]'
+                          : 'text-[#8892a4] hover:text-white hover:bg-white/[0.06]'
+                      }`}
+                    >
+                      {activeSection === item.id && !item.highlight && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,240,255,0.8)]" />
+                      )}
+                      {item.label}
+                    </motion.button>
+                    {/* Mobile Submenu */}
+                    {item.subItems && (
+                      <div className="flex flex-col ml-6 pl-4 border-l-2 border-primary/50 space-y-1 py-1">
+                        {item.subItems.map(sub => (
+                          <motion.button
+                            key={sub.id}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.05 + 0.1 }}
+                            onClick={() => scrollTo(sub.id)}
+                            className="text-left cursor-pointer w-full py-2.5 px-3 rounded-lg text-[13px] font-medium text-gray-300 hover:text-primary hover:bg-primary/20 transition-all duration-300 flex items-center gap-2"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/80 shadow-[0_0_5px_rgba(0,240,255,0.8)]" />
+                            {sub.label}
+                          </motion.button>
+                        ))}
+                      </div>
                     )}
-                    {item.label}
-                  </motion.button>
+                  </div>
                 ))}
               </div>
             </motion.div>
