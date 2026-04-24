@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ExternalLink, Calendar, MapPin, Clock, Trophy, Award, Heart, Coins, Leaf, Cpu, Lightbulb, MessageCircle } from 'lucide-react';
+import { ExternalLink, Calendar, MapPin, Clock, Trophy, Award, Heart, Coins, Leaf, Cpu, Lightbulb, MessageCircle, Instagram } from 'lucide-react';
 
 const timelineData = [
   { time: "02:00–02:30 PM", activity: "Inauguration", details: "Opening, rules, and instructions", date: "2nd May 2026" },
@@ -95,7 +95,7 @@ const Events = () => {
                             </h3>
                             
                             <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8">
-                                Join us for a 24-hour coding marathon where imagination meets execution. Build real-world solutions, collaborate with top talent, and win exciting prizes. Whether you're a seasoned developer or a passionate beginner, this is your chance to showcase your skills.
+                                Join us for a 24-hour coding marathon where imagination meets execution. Build real-world solutions, collaborate with top talent, and win exciting prizes. <span className="text-primary font-semibold">Registrations are closed, stay tuned for the results!</span>
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -119,22 +119,17 @@ const Events = () => {
                                 </div>
                             </div>
                             
-                            <div className="flex flex-col gap-4">
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <div className="inline-flex items-center justify-center gap-2 w-full sm:w-fit px-8 py-4 bg-white/10 text-gray-400 font-bold rounded-xl border border-white/10 cursor-not-allowed">
+                                    Registrations Closed
+                                </div>
                                 <a 
-                                    href="https://unstop.com/p/vibe-a-thon-2026-nitte-meenakshi-institute-of-technology-nmit-yelahanka-1663230?rstatus=1"
+                                    href="https://www.instagram.com/nexora_nmit/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-2 w-full sm:w-fit px-8 py-4 bg-primary text-[#02093D] font-bold rounded-xl hover:bg-white hover:text-[#02093D] hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] hover:-translate-y-1 transition-all duration-300"
+                                    className="inline-flex items-center justify-center gap-2 w-full sm:w-fit px-8 py-4 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045] text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(253,29,29,0.4)] hover:-translate-y-1 transition-all duration-300"
                                 >
-                                    Register on Unstop <ExternalLink className="w-5 h-5" />
-                                </a>
-                                <a 
-                                    href="https://chat.whatsapp.com/HNFScY2VJZhFKAd5stIFQv"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-2 w-full sm:w-fit px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-white hover:text-[#25D366] hover:shadow-[0_0_20px_rgba(37,211,102,0.6)] hover:-translate-y-1 transition-all duration-300"
-                                >
-                                    Join WhatsApp group for event updates <MessageCircle className="w-5 h-5" />
+                                    Follow on Instagram <Instagram className="w-5 h-5" />
                                 </a>
                             </div>
                         </div>
